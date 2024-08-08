@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let categories = new Set();
     const SERVER_URL = "https://jsonplaceholder.typicode.com/posts"; // Mock API
   
+
     const quoteDisplay = document.getElementById("quoteDisplay");
     const newQuoteButton = document.getElementById("newQuote");
     const addQuoteForm = document.getElementById("addQuoteForm");
@@ -10,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const importFileInput = document.getElementById("importFile");
     const categoryFilter = document.getElementById("categoryFilter");
     const syncQuotesButton = document.getElementById("syncQuotes");
+
   
     function createAddQuoteForm() {
         addQuoteForm.addEventListener("submit", async (event) => {
@@ -106,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const serverQuotes = await fetchQuotesFromServer();
             if (newQuote) {
-                // Post new quote to server
-                await postQuoteToServer(newQuote);
+                
+                await postQuoteToServer(newQuote); // Posting new quote to the server
             }
             const combinedQuotes = mergeQuotes(quotes, serverQuotes);
             quotes = combinedQuotes;
